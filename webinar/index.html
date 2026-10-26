@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon.png" type="image/png">
+<title>The 3 Overlooked Feelings · Jamie Date</title>
+<style>
+@font-face{font-family:"SFD";src:url(../assets/fonts/sfpro-bold.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Inter";src:url(../assets/fonts/inter-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--ink:#0e0d0d;--ink2:#1a1717;--red:#c1121f;--red2:#e0303c;--deep:#7d0c15;--cream:#f5efe9;--mute:rgba(245,239,233,.62);--line:rgba(245,239,233,.14)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{overflow:hidden;background:#000;color:var(--cream);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+#stage{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,177.78vh);height:min(56.25vw,100vh);overflow:hidden;background:var(--ink)}
+.slide{position:absolute;inset:0;overflow:hidden;container-type:size;background:var(--ink)}
+#bar{position:fixed;left:0;top:0;height:3px;background:var(--red);width:0;transition:width .3s ease;z-index:5}
+#counter{position:fixed;right:14px;bottom:12px;z-index:5;font:12px/1 Inter,system-ui;color:var(--cream);opacity:.45;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+#hint{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:5;font:12px/1 Inter;color:var(--cream);opacity:.4;transition:opacity .6s}
+
+/* type */
+h1,h2,h3{font-family:SFD,"SF Pro Display",-apple-system,Inter,sans-serif;font-weight:700;margin:0;letter-spacing:-.02em;line-height:1.04}
+.h1{font-size:6.2cqw}.h2{font-size:4.6cqw}.h3{font-size:3.3cqw}
+p{margin:0}
+.sub{font-size:1.9cqw;line-height:1.4;color:var(--mute);margin-top:2.6cqh;max-width:46ch}
+.eye{font:600 1.15cqw/1 Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--red2);margin-bottom:3cqh}
+.r{color:var(--red2)}
+.brand{position:absolute;left:4cqw;top:5cqh;font:700 1.5cqw/1 SFD,Inter;color:var(--red2);letter-spacing:-.01em;z-index:3}
+
+/* layouts */
+.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8cqh 9cqw}
+.c .sub{margin-left:auto;margin-right:auto}
+.redbg{background:var(--red)} .redbg .sub{color:rgba(255,255,255,.82)} .redbg .eye{color:#fff;opacity:.8}
+.creambg{background:var(--cream);color:var(--ink)} .creambg .sub{color:rgba(14,13,13,.62)} .creambg .eye{color:var(--red)}
+.full img.bg{position:absolute;top:0;right:0;width:56%;height:100%;object-fit:cover}
+.full.rt img.bg{right:auto;left:0}
+.full::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,var(--ink) 44%,rgba(14,13,13,.55) 52%,rgba(14,13,13,0) 64%)}
+.full.rt::after{background:linear-gradient(270deg,var(--ink) 0%,var(--ink) 44%,rgba(14,13,13,.55) 52%,rgba(14,13,13,0) 64%)}
+.full .tx{position:absolute;z-index:2;left:6cqw;top:50%;transform:translateY(-50%);max-width:40cqw}
+.full.rt .tx{left:auto;right:6cqw}
+.split{display:grid;grid-template-columns:1fr 1fr;height:100%}
+.split .ph{position:relative;overflow:hidden}
+.split .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.split .tx{display:flex;flex-direction:column;justify-content:center;padding:0 6cqw}
+.split.rev .ph{order:2}
+.ph-frame{width:100%;height:100%;object-fit:cover;object-position:50% 15%;border-radius:1.4cqw}
+.framed{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6cqw;padding:0 7cqw}
+.framed .pic{height:72cqh;display:flex;align-items:center;justify-content:center}
+.framed .pic img{max-height:72cqh;max-width:100%;border-radius:1.2cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5)}
+.tilt{transform:rotate(-3deg)}
+.pol{background:#fff;padding:1.2cqw 1.2cqw 5cqh;border-radius:.4cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5);transform:rotate(-4deg)}
+.pol img{display:block;height:60cqh;width:auto;max-width:34cqw;object-fit:cover}
+.cluster{display:flex;gap:2cqw;justify-content:center;align-items:center;margin-top:5cqh}
+.cluster img{height:52cqh;width:auto;border-radius:1cqw;object-fit:cover;box-shadow:0 2cqh 6cqh rgba(0,0,0,.5)}
+.cluster img:nth-child(2){transform:translateY(-3cqh)}
+.cluster img:nth-child(odd){transform:rotate(-2deg)}
+
+/* nodes */
+.nodes{display:flex;align-items:flex-start;justify-content:center;gap:0;margin-top:9cqh;position:relative;width:100%}
+.node{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;padding:0 1.2cqw}
+.node .dot{width:7.4cqw;height:7.4cqw;border-radius:50%;background:var(--ink2);border:.25cqw solid var(--red);display:grid;place-items:center;font:700 2.6cqw SFD;color:var(--cream);position:relative;z-index:2}
+.node:not(:last-child)::after{content:"";position:absolute;top:3.7cqw;left:50%;width:100%;height:.25cqw;background:linear-gradient(90deg,var(--red),rgba(193,18,31,.25));z-index:1}
+.node b{display:block;font:700 1.9cqw/1.2 SFD;margin-top:3cqh}
+.node span{display:block;font-size:1.35cqw;line-height:1.4;color:var(--mute);margin-top:1.2cqh;max-width:22ch}
+.creambg .node .dot{background:#fff;color:var(--ink)} .creambg .node span{color:rgba(14,13,13,.6)}
+
+/* cards */
+.grid{display:grid;gap:1.6cqw;margin-top:7cqh;width:100%}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:1.2cqw;padding:3.4cqh 1.8cqw;text-align:left}
+.card .n{font:700 1.2cqw SFD;color:var(--red2);letter-spacing:.1em}
+.card b{display:block;font:700 1.9cqw/1.2 SFD;margin-top:1.4cqh}
+.card span{display:block;font-size:1.3cqw;line-height:1.45;color:var(--mute);margin-top:1cqh}
+.creambg .card{background:#fff;border-color:rgba(14,13,13,.08)} .creambg .card span{color:rgba(14,13,13,.6)}
+
+/* myth */
+.myth{display:grid;grid-template-columns:1fr 1fr;height:100%}
+.myth>div{display:flex;flex-direction:column;justify-content:center;padding:0 6cqw}
+.myth .m{background:var(--ink2)} .myth .m h2{color:rgba(245,239,233,.45);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:.35cqw}
+.myth .t{background:var(--red)}
+.myth .lab{font:600 1.2cqw Inter;letter-spacing:.2em;text-transform:uppercase;margin-bottom:3cqh;opacity:.75}
+
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:2cqw;margin-top:6cqh;width:100%}
+.cmp .col{border-radius:1.2cqw;padding:3.6cqh 2.4cqw;text-align:left}
+.cmp .a{background:var(--ink2);border:1px solid var(--line)} .cmp .a h3{color:rgba(245,239,233,.5)}
+.cmp .b{background:var(--red)}
+.cmp ul{list-style:none;margin:2.6cqh 0 0;padding:0}
+.cmp li{font-size:1.65cqw;line-height:1.35;padding:1.5cqh 0;border-top:1px solid rgba(255,255,255,.14)}
+.cmp .a li{color:var(--mute)}
+
+/* quote */
+.q{position:absolute;inset:0;display:grid;grid-template-columns:38cqw 1fr;align-items:center}
+.q .ph{height:100%;position:relative}.q .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.q .tx{padding:0 7cqw}
+.q blockquote{margin:0;font:700 3.4cqw/1.18 SFD;letter-spacing:-.015em}
+.q cite{display:block;margin-top:4cqh;font:600 1.3cqw Inter;font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--red2)}
+.stars{color:var(--red2);font-size:1.8cqw;letter-spacing:.3em;margin-bottom:3cqh}
+
+/* chat prompt */
+.chat{display:inline-flex;align-items:center;gap:1.2cqw;background:#fff;color:var(--ink);border-radius:5cqw;padding:2cqh 2.4cqw 2cqh 1.4cqw;margin-top:6cqh;box-shadow:0 2cqh 6cqh rgba(0,0,0,.35)}
+.chat i{width:3.6cqw;height:3.6cqw;border-radius:50%;background:var(--red);display:grid;place-items:center;color:#fff;font:700 1.4cqw SFD;font-style:normal}
+.chat b{font:700 2.4cqw SFD}
+.caret{display:inline-block;width:.18cqw;height:2.6cqw;background:var(--red);margin-left:.4cqw;animation:blink 1s steps(1) infinite;vertical-align:middle}
+@keyframes blink{50%{opacity:0}}
+
+/* quiz */
+.quiz{display:flex;gap:2cqw;margin-top:7cqh}
+.quiz div{width:22cqw;padding:3.6cqh 0;border-radius:1.2cqw;border:.2cqw solid var(--line);font:700 2.8cqw SFD;transition:all .5s}
+.quiz .on{background:var(--red);border-color:var(--red)}
+.quiz .off{opacity:.3}
+.reveal{opacity:0;transform:translateY(2cqh);transition:all .6s;margin-top:5cqh}
+.reveal.in{opacity:1;transform:none}
+
+/* stack */
+.stack{width:100%;margin-top:5cqh;display:flex;flex-direction:column;gap:1.2cqh}
+.stack .row{display:flex;align-items:center;justify-content:space-between;background:var(--ink2);border:1px solid var(--line);border-radius:1cqw;padding:2.1cqh 2.2cqw;font:700 1.8cqw SFD;text-align:left}
+.stack .row em{font:500 1.25cqw Inter;font-style:normal;color:var(--mute)}
+.stack .row.bn{border-color:rgba(224,48,60,.6)}
+.stack .row.bn em{color:var(--red2)}
+.btn{display:inline-block;margin-top:6cqh;background:var(--red);color:#fff;font:700 2.2cqw SFD;padding:2.8cqh 4cqw;border-radius:5cqw;box-shadow:0 2cqh 6cqh rgba(193,18,31,.4)}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:4cqw;padding:1.4cqh 2cqw;font-size:1.4cqw;color:var(--mute);margin-top:3cqh}
+
+/* animations on mount */
+.a1,.a2,.a3,.a4,.a5{opacity:0;transform:translateY(2.4cqh);animation:up .7s cubic-bezier(.2,.7,.2,1) forwards}
+.a2{animation-delay:.18s}.a3{animation-delay:.36s}.a4{animation-delay:.54s}.a5{animation-delay:.72s}
+@keyframes up{to{opacity:1;transform:none}}
+.zoom img.bg{animation:kb 9s ease-out forwards}
+@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
+html.reduced .a1,html.reduced .a2,html.reduced .a3,html.reduced .a4,html.reduced .a5{animation:none;opacity:1;transform:none}
+html.reduced .zoom img.bg{animation:none}
+
+/* demos */
+.meter{width:70cqw;margin-top:8cqh;position:relative}
+.meter .track{height:2.2cqh;border-radius:2cqh;background:linear-gradient(90deg,#3a3434,var(--red))}
+.meter .lbls{display:flex;justify-content:space-between;margin-top:2.4cqh;font:600 1.5cqw Inter;color:var(--mute)}
+.meter .needle{position:absolute;top:-2.4cqh;left:0;width:.5cqw;height:7cqh;background:var(--cream);border-radius:1cqw;transition:left 1.8s cubic-bezier(.3,.8,.2,1)}
+.meter .tag{position:absolute;top:-9cqh;transform:translateX(-50%);font:700 1.6cqw SFD;background:var(--cream);color:var(--ink);padding:1cqh 1.2cqw;border-radius:.6cqw;white-space:nowrap;transition:left 1.8s cubic-bezier(.3,.8,.2,1)}
+.kill{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqw;margin-top:6cqh;width:100%}
+.kill div{background:var(--ink2);border:1px solid var(--line);border-radius:1cqw;padding:3cqh 1.4cqw;text-align:left;opacity:.15;transition:all .45s}
+.kill div.on{opacity:1;border-color:rgba(224,48,60,.55)}
+.kill div.big{background:var(--red);border-color:var(--red)}
+.kill i{font:700 1.2cqw SFD;color:var(--red2);font-style:normal;letter-spacing:.1em}
+.kill div.big i{color:#fff}
+.kill b{display:block;font:700 1.75cqw/1.2 SFD;margin-top:1.2cqh}
+.tri{width:84cqh;height:62cqh;margin-top:4cqh;overflow:visible}
+.tri line{stroke:var(--red);stroke-width:3;stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1s ease}
+.tri.go line{stroke-dashoffset:0}
+.tri circle{fill:var(--ink2);stroke:var(--red);stroke-width:3}
+.tri text{fill:var(--cream);font:700 18px SFD,Inter;text-anchor:middle}
+.tri .ctr{fill:var(--red2);font-size:13px;opacity:0;transition:opacity .6s 1.2s}
+.tri.go .ctr{opacity:1}
+.thermo{width:76cqw;margin-top:9cqh;position:relative}
+.thermo .tube{height:3cqh;border-radius:3cqh;background:#2a2525;overflow:hidden}
+.thermo .fill{height:100%;width:0;background:linear-gradient(90deg,#f3a6a6,var(--red));transition:width 3.2s cubic-bezier(.4,.1,.3,1)}
+.thermo .steps{display:flex;justify-content:space-between;margin-top:3cqh}
+.thermo .steps span{font:700 1.6cqw SFD;opacity:.25;transition:opacity .4s;width:20%;text-align:center}
+.thermo .steps span.on{opacity:1}
+.big{font:700 22cqh/1 SFD;color:var(--red2);letter-spacing:-.04em}
+.pp{display:flex;gap:4cqw;align-items:center;margin-top:7cqh}
+.pp div{width:20cqw;padding:4cqh 0;border-radius:1.2cqw;font:700 2.6cqw SFD;background:var(--ink2);border:1px solid var(--line)}
+.pp .pull{animation:pull 2.4s ease-in-out infinite}
+.pp .push{animation:push 2.4s ease-in-out infinite;background:var(--red);border-color:var(--red)}
+@keyframes pull{50%{transform:translateX(3cqw)}}
+@keyframes push{50%{transform:translateX(-3cqw)}}
+html.reduced .pp div{animation:none}
+.cover{height:66cqh;border-radius:1cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.55);transform:rotate(-4deg)}
+.shots{display:flex;gap:2.4cqw;justify-content:center;margin-top:5cqh}
+.shots img{height:58cqh;border-radius:1.2cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5)}
+.shots img:nth-child(1){transform:rotate(-3deg)}.shots img:nth-child(3){transform:rotate(3deg)}
+.faq .q2{font:700 4.4cqw/1.12 SFD;max-width:20ch}
+.faq .tag{font:600 1.2cqw Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--red2);margin-bottom:4cqh}
+</style>
+</head>
+<body>
+<div id="stage" aria-live="polite"></div>
+<div id="bar"></div>
+<div id="counter"></div>
+<div id="hint">Click, or press → to advance</div>
+
+<script>
+const DECK = (function(){
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) document.documentElement.classList.add('reduced');
+  const stage = document.getElementById('stage');
+  const bar = document.getElementById('bar');
+  const counter = document.getElementById('counter');
+  let current = 0, SLIDES = [];
+  function show(i){
+    if (!SLIDES.length) return;
+    current = Math.max(0, Math.min(SLIDES.length - 1, i));
+    const s = SLIDES[current];
+    const el = document.createElement('section');
+    el.className = 'slide';
+    el.innerHTML = (typeof s === 'string') ? s : (s.html || '');
+    stage.replaceChildren(el);
+    if (s && typeof s.onMount === 'function') s.onMount(el, { reduced });
+    bar.style.width = (current / Math.max(1, SLIDES.length - 1) * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + SLIDES.length;
+    if (current > 0) document.getElementById('hint').style.opacity = 0;
+  }
+  const next = () => show(current + 1);
+  const prev = () => show(current - 1);
+  addEventListener('keydown', e => {
+    if (['ArrowRight',' ','Spacebar','PageDown'].includes(e.key)){ e.preventDefault(); next(); }
+    else if (['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    else if (e.key === 'Home'){ show(0); }
+    else if (e.key === 'End'){ show(SLIDES.length - 1); }
+  });
+  addEventListener('click', e => { (e.clientX < innerWidth * 0.33 ? prev : next)(); });
+  function load(slides){ SLIDES = slides || []; show((+new URLSearchParams(location.search).get('s')||1)-1); }
+  return { load, show, next, prev, reduced };
+})();
+
+/* ---------- slide builders (design + copy live here) ---------- */
+const I = n => `../assets/img/deck/${n}?v=3`;
+const P = { // Jamie photo crops
+  point:'r-8D1dB7D3GbM.jpg', smile:'r-AbO6SNa46tE.jpg', serious:'r-GBH1frHNUbg.jpg', calm:'r-Wv6sGXr0WME.jpg',
+  arms:'r-XfhZN97qZP0.jpg', soft:'r-bQrjmU6i0JU.jpg', red:'r-TIgCxGpufOI.jpg', laugh:'r-p0O_u8ZJyAE.jpg',
+  think:'l-6asRqB6p5-Q.jpg', glance:'l-aGxPqvd9CWk.jpg', hair:'l-bExYua26cFE.jpg', black:'l-ZmVdXCHScVA.jpg',
+  wow:'l-nfI5aPcqWqk.jpg', print:'l-lwdP8xupnzE.jpg', redtop:'l-cq4OSJLWj4s.jpg', shh:'l-i2YFmDlW67M.jpg',
+  k1:'t-02AWTTp-bFY.jpg', k2:'t-KJfnJenVQvU.jpg', k3:'t-OVa7ZD6qU0o.jpg', k4:'t-SdUtYr7BK4c.jpg', k5:'t-YFP53N6LHX4.jpg', k6:'t-m4n5CHQ9Axs.jpg'
+};
+const B = `<div class="brand">jamie date.</div>`;
+const eye = t => t ? `<div class="eye a1">${t}</div>` : '';
+const sub = t => t ? `<p class="sub a3">${t}</p>` : '';
+
+const full = (img, h, s, o={}) => `<div class="full zoom ${o.rt?'rt':''}" style="position:absolute;inset:0">
+  <img class="bg" src="${I(P[img]||img)}" alt="" style="object-position:${o.pos||'50% 15%'}">
+  <div class="tx">${eye(o.eye)}<h2 class="${o.size||'h2'} a2">${h}</h2>${sub(s)}</div></div>`;
+const split = (img, h, s, o={}) => `<div class="split ${o.rev?'rev':''}">
+  <div class="ph"><img src="${I(P[img]||img)}" alt="" style="object-position:${o.pos||'50% 15%'}"></div>
+  <div class="tx">${eye(o.eye)}<h2 class="${o.size||'h2'} a2">${h}</h2>${sub(s)}</div></div>`;
+const text = (h, s, o={}) => `<div class="c ${o.bg||''}">${B}${eye(o.eye)}<h1 class="${o.size||'h1'} a2">${h}</h1>${sub(s)}</div>`;
+const divider = (n, h, s) => `<div class="c redbg"><div class="eye a1">${n}</div><h1 class="h1 a2" style="font-size:8cqw">${h}</h1>${sub(s)}</div>`;
+const framed = (img, h, s, o={}) => `<div class="framed ${o.bg||''}" ${o.bg?'style="position:absolute;inset:0"':''}>
+  <div class="tx" style="text-align:left">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>${sub(s)}</div>
+  <div class="pic a3"><img class="${o.tilt?'tilt':''}" src="${I(img)}" alt=""></div></div>`;
+const polaroid = (img, h, s, o={}) => `<div class="framed"><div class="tx" style="text-align:left">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>${sub(s)}</div>
+  <div class="pic a3"><div class="pol"><img src="${I(P[img]||img)}" alt=""></div></div></div>`;
+const cluster = (imgs, h, s, o={}) => `<div class="c">${eye(o.eye)}<h2 class="h3 a2">${h}</h2>
+  <div class="cluster a3">${imgs.map(i=>`<img src="${I(P[i]||i)}" alt="">`).join('')}</div>${s?`<p class="sub a4" style="margin-top:3cqh">${s}</p>`:''}</div>`;
+const nodes = (h, items, o={}) => `<div class="c ${o.bg||''}">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>
+  <div class="nodes a3">${items.map((it,i)=>`<div class="node"><div class="dot">${it[2]||i+1}</div><b>${it[0]}</b>${it[1]?`<span>${it[1]}</span>`:''}</div>`).join('')}</div></div>`;
+const cards = (h, items, cols, o={}) => `<div class="c ${o.bg||''}">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>
+  <div class="grid g${cols} a3">${items.map((it,i)=>`<div class="card"><div class="n">${String(i+1).padStart(2,'0')}</div><b>${it[0]}</b>${it[1]?`<span>${it[1]}</span>`:''}</div>`).join('')}</div></div>`;
+const myth = (m, t) => `<div class="myth"><div class="m"><div class="lab">Myth</div><h2 class="h2 a1">${m}</h2></div>
+  <div class="t"><div class="lab">Truth</div><h2 class="h2 a3">${t}</h2></div></div>`;
+const compare = (h, a, al, b, bl, o={}) => `<div class="c">${eye(o.eye)}<h2 class="h2 a1">${h}</h2><div class="cmp">
+  <div class="col a a2"><h3 class="h3">${a}</h3><ul>${al.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+  <div class="col b a4"><h3 class="h3">${b}</h3><ul>${bl.map(x=>`<li>${x}</li>`).join('')}</ul></div></div></div>`;
+const quote = (img, q, who, o={}) => `<div class="q ${o.bg||''}" style="${o.bg?'':'background:var(--ink)'}">
+  <div class="ph"><img src="${I(P[img]||img)}" alt=""></div>
+  <div class="tx"><div class="stars a1">★★★★★</div><blockquote class="a2">${q}</blockquote><cite class="a3">${who}</cite></div></div>`;
+const yes = (h, word='YES', o={}) => `<div class="c ${o.bg||'redbg'}">${eye(o.eye||'Type in the chat')}<h2 class="h2 a2" style="max-width:22ch">${h}</h2>
+  <div class="chat a4"><i>J</i><b>${word}</b><span class="caret"></span></div></div>`;
+const faq = q => `<div class="c faq creambg" style="position:absolute;inset:0">${B}<div class="tag a1">Questions I get asked</div><div class="q2 a2">${q}</div></div>`;
+
+/* demos */
+const meter = (h, s, at, label) => ({ html:`<div class="c">${eye('Where most good men end up')}<h2 class="h2 a1">${h}</h2>
+  <div class="meter a2"><div class="tag" style="left:0">${label}</div><div class="needle" style="left:0"></div><div class="track"></div>
+  <div class="lbls"><span>She's settling for you</span><span>She's falling for you</span></div></div>${sub(s)}</div>`,
+  onMount(el,{reduced}){ const n=el.querySelector('.needle'),t=el.querySelector('.tag');
+    const go=()=>{n.style.left=at+'%';t.style.left=at+'%'}; reduced?go():setTimeout(go,350);} });
+const killers = (focus) => ({ html:`<div class="c">${eye('The 7 attraction killers')}<h2 class="h2 a1">${focus?'The biggest one is neediness.':'Most nice guys make all seven without noticing.'}</h2>
+  <div class="kill">${['You\'re predictable','No physical touch','She holds all the power','You make her be the man','You\'re won over too easily','You\'re always available','Neediness','']
+   .map((k,i)=>k?`<div data-i="${i}"><i>${String(i+1).padStart(2,'0')}</i><b>${k}</b></div>`:'<div style="visibility:hidden"></div>').join('')}</div></div>`,
+  onMount(el,{reduced}){ const ds=[...el.querySelectorAll('.kill div[data-i]')];
+    if(focus){ds.forEach(d=>{d.classList.add('on'); if(d.dataset.i==='6') d.classList.add('big'); else d.style.opacity=.25}); return;}
+    ds.forEach((d,i)=>reduced?d.classList.add('on'):setTimeout(()=>d.classList.add('on'),400+i*260)); } });
+const triangle = (h, s, labels) => ({ html:`<div class="c">${eye(s)}<h2 class="h2 a1">${h}</h2>
+  <svg class="tri" viewBox="-60 -24 420 310"><line x1="150" y1="40" x2="40" y2="220"/><line x1="40" y1="220" x2="260" y2="220"/><line x1="260" y1="220" x2="150" y2="40"/>
+  <circle cx="150" cy="40" r="30"/><circle cx="40" cy="220" r="30"/><circle cx="260" cy="220" r="30"/>
+  <text x="150" y="46">1</text><text x="40" y="226">2</text><text x="260" y="226">3</text>
+  <text x="150" y="-4" style="font-size:14px">${labels[0]}</text><text x="40" y="276" style="font-size:14px">${labels[1]}</text><text x="260" y="276" style="font-size:14px">${labels[2]}</text>
+  <text class="ctr" x="150" y="168">She falls for you</text></svg></div>`,
+  onMount(el,{reduced}){ const t=el.querySelector('.tri'); reduced?t.classList.add('go'):setTimeout(()=>t.classList.add('go'),300);} });
+const thermo = { html:`<div class="c">${eye('Escalate without being creepy')}<h2 class="h2 a1">Turn it up one step at a time.</h2>
+  <div class="thermo a2"><div class="tube"><div class="fill"></div></div>
+  <div class="steps"><span>High five</span><span>Her hand</span><span>Her arm</span><span>A hug</span><span>First kiss</span></div></div>
+  <p class="sub a3">Like a thermostat. Never a light switch.</p></div>`,
+  onMount(el,{reduced}){ const f=el.querySelector('.fill'),ss=[...el.querySelectorAll('.steps span')];
+    if(reduced){f.style.width='100%';ss.forEach(s=>s.classList.add('on'));return;}
+    setTimeout(()=>f.style.width='100%',300); ss.forEach((s,i)=>setTimeout(()=>s.classList.add('on'),400+i*700)); } };
+const counter = (end, h, s, suffix='') => ({ html:`<div class="c">${B}<div class="big a1"><span class="num">0</span>${suffix}</div><h2 class="h3 a2" style="margin-top:3cqh">${h}</h2>${sub(s)}</div>`,
+  onMount(el,{reduced}){ const n=el.querySelector('.num'); if(reduced){n.textContent=end;return;}
+    const t0=performance.now(),d=1300;(function tick(now){const p=Math.min(1,(now-t0)/d),e=1-Math.pow(1-p,3);n.textContent=Math.round(end*e);if(p<1)requestAnimationFrame(tick)})(t0);} });
+const quiz = { html:`<div class="c">${B}${eye('Quick quiz before we start')}<h2 class="h2 a1" style="max-width:20ch">True or false: women don't like nice guys.</h2>
+  <div class="quiz a2"><div class="t">True</div><div class="f">False</div></div>
+  <p class="sub reveal">False. It's not that women like jerks. Stick around and I'll show you what's actually going on.</p></div>`,
+  onMount(el,{reduced}){ const go=()=>{el.querySelector('.f').classList.add('on');el.querySelector('.t').classList.add('off');el.querySelector('.reveal').classList.add('in')}; reduced?go():setTimeout(go,1600);} };
+
+const PILLARS = [['Build tension','Be the chooser, not the chaser'],['Make her feel special','So she wants to win you over'],['Escalate without being creepy','From a high five to the first kiss']];
+
+DECK.load([
+/* ===== 1 HOOK ===== */
+full('red', 'The 3 <span class="r">Overlooked</span> Feelings That Make Beautiful Women Fall For Good Men', 'Even if you\'re too nice or haven\'t dated in years.', {eye:'Becoming Boyfriend Material · Free live class', size:'h2', rt:false, pos:'50% 20%'}),
+quiz,
+full('think', 'You\'ve got a girl in mind right now.', 'Don\'t send her another text until this class is over.', {rt:true}),
+split('black', 'Hey, I\'m Jamie.', 'I coach men on dating. And yes, I\'m a woman, which is the whole point.', {eye:'Your host tonight'}),
+yes('Where are you watching from tonight?', 'New York, NY', {bg:'creambg'}),
+text('Tonight is for good men who want to date <span class="r">beautiful</span> women.', 'Not players. Not pickup artists. Good men who keep getting passed over.'),
+
+/* ===== 2 PAIN ===== */
+cards('Stop me if any of these sound familiar.', [['She\'s settling for you','You can feel she isn\'t that into it'],['You walk on eggshells','Scared one text will ruin it'],['She likes you, then she doesn\'t','Hot for a week, then gone cold'],['She ghosts you or blocks you','And you never find out why']], 4, {eye:'This is for you if'}),
+full('hair', 'She says you\'re sweet.', 'Then she goes out with someone else.', {rt:false}),
+full('calm', 'Your friends are getting married and having kids.', 'And you\'re still trying to figure it out.', {rt:true}),
+meter('Most good men get stuck on the wrong side.', 'She likes you enough to stay. Not enough to fall.', 18, 'You are here'),
+split('soft', 'After a divorce, it can feel like the rules changed while you weren\'t looking.', 'You\'re not imagining it. And you\'re not too old for this.', {rev:true, size:'h3'}),
+yes('Type YES if one of these sounds like you.'),
+
+/* ===== 3 TEASE ===== */
+nodes('Tonight I\'ll show you the 3 feelings that change everything.', PILLARS, {eye:'What you\'ll learn'}),
+killers(false),
+framed('swiping.jpg', 'Stay to the end and I\'ll give you a free gift.', 'My e-book, The In\'s and Out\'s of Swiping Left & Right.', {eye:'Free gift #2', tilt:true}),
+framed('bbm.jpg', 'You already got gift #1 when you signed up.', 'Becoming Boyfriend Material. Keep it open next to you.', {eye:'Free gift #1', tilt:true}),
+
+/* ===== 4 EXCITE ===== */
+full('laugh', 'Imagine she\'s the one texting you first.', '', {rt:true}),
+full('arms', 'Imagine a second date. Then a third.', 'Because she wants to see you again.', {rt:true}),
+quote('wow', 'I\'m finally dating someone I\'m actually excited about!', 'Martin · Client'),
+
+/* ===== 5 SOCIAL PROOF (origin, photo by photo) ===== */
+full('redtop', 'So why listen to me?', '', {eye:'My story'}),
+split('serious', 'I\'m not a man guessing about women.', 'I\'m a woman telling you exactly what we notice.', {}),
+split('shh', 'For 5 years I worked as a professional catfish.', 'Yes, that\'s a real job.', {rev:true}),
+counter(5, 'years acting as a man online, picking up women.', 'From the other side of the screen.', ''),
+counter(65, 'That\'s how old the man I played was.', 'And I still picked up women online.', ''),
+polaroid('print', 'That\'s how I cracked the code.', 'It was never about looks or age.', {eye:'What I learned'}),
+framed('book.jpg', 'Then I wrote the book on it.', 'How to Make Online Dating Suck Less.', {eye:'Author'}),
+cluster(['k1','k4','k6'], 'I went out with men as their wing-girl.', 'So I\'ve seen the mistakes men make up close.'),
+framed('t1-class.png', 'Every Wednesday I taught a class called Inside the Female Mind.', '', {eye:'Weekly class'}),
+cluster(['k2','k3','k5'], 'For nearly a decade, I\'ve helped hundreds of men.', 'Frustrated but motivated men, and experienced men starting over after divorce.'),
+{ html:`<div class="c">${eye('What they say')}<h2 class="h3 a1">Here\'s what my clients send me.</h2><div class="shots a2"><img src="${I('t2-zoom.png')}" alt=""><img src="${I('t3-slay.png')}" alt=""><img src="${I('t4-bootcamp.png')}" alt=""></div></div>` },
+quote('smile', 'Before this, I constantly got friend-zoned. Within weeks I started getting second and third dates consistently.', 'JP, 36 · Client'),
+quote('point', 'Dating apps went from frustrating to predictable. I actually know what I\'m doing now.', 'Anthony, 42 · Client'),
+quote('laugh', 'The fear of dating is gone.', 'Deb · Client'),
+
+/* ===== 6 PARADIGM ===== */
+divider('Before we start', 'The <span style="color:var(--ink)">biggest</span> mistake good men make'),
+compare('There are two ways a woman can be with you.', 'She\'s settling', ['She\'s with you because you\'re safe','She keeps one eye on the door','You\'re always trying to keep her'], 'She\'s falling for you', ['She\'s with you because she wants you','She thinks about you when you\'re not there','She\'s trying to keep you']),
+killers(true),
+split('think', 'When you\'re nervous to make a move, she feels it.', 'Neediness hands her all the power.', {}),
+full('soft', 'And here\'s the truth: it\'s not your fault.', '', {rt:true}),
+{ html:`<div class="c">${eye('The nice-guy script')}<h2 class="h2 a1">Movies taught you the wrong script.</h2>
+  <div class="grid g4 a2" style="margin-top:7cqh">${['Be patient','Be sweet','Do everything she asks','Wait for her to notice you'].map(x=>`<div class="card" style="text-align:center"><b style="text-decoration:line-through;text-decoration-color:var(--red2);text-decoration-thickness:.3cqw">${x}</b></div>`).join('')}</div>
+  <p class="sub a3">It works on screen. In real life it gets you friend-zoned.</p></div>` },
+myth('Women like jerks.', 'Women like a man who makes them feel something.'),
+triangle('Attraction isn\'t cause and effect.', 'It\'s three feelings showing up at once', PILLARS.map(p=>p[0])),
+
+/* ===== 7 TRAINING · PILLAR 1 ===== */
+divider('Feeling 1 of 3', 'Build tension', 'Be the chooser, not the chaser.'),
+myth('Being nice is attractive.', 'Being nice is expected.'),
+full('glance', 'We all want what we can\'t quite have.', 'A little mystery is what keeps her thinking about you.', {}),
+nodes('Where tension actually comes from.', [['A little scarcity','You have a full life'],['A playful challenge','You tease, you don\'t agree with everything'],['A hint of the forbidden','Not everything is said out loud'],['Other women noticing you','She sees you\'re a catch']], {eye:'Feeling 1 · Build tension'}),
+framed('chooser.jpg', 'Be the chooser, not the chaser.', 'You decide if she fits your life. Not the other way round.', {eye:'Feeling 1 · Build tension'}),
+compare('Same date. Two different men.', 'The chaser', ['Texts back in seconds','Agrees with everything she says','Asks what she wants to do'], 'The chooser', ['Replies when he\'s free','Teases her and disagrees playfully','Picks the place and invites her']),
+framed('banter.jpg', 'Every woman wants witty banter.', 'Banter is tension you can hear.', {eye:'Feeling 1 · Build tension'}),
+{ html:`<div class="c">${eye('Feeling 1 · Build tension')}<h2 class="h2 a1">Push a little. Pull a little.</h2><div class="pp a2"><div class="pull">Pull her in</div><div class="push">Push her away</div></div><p class="sub a3">That back and forth is what she calls chemistry.</p></div>` },
+quote('calm', 'Jamie helped me stop overthinking every move and start showing up as a confident, grounded man.', 'Noah · Client'),
+yes('Type YES if you\'ve ever been the chaser.'),
+
+/* ===== 7 TRAINING · PILLAR 2 ===== */
+divider('Feeling 2 of 3', 'Make her feel special', 'So she wants to win you over.'),
+myth('Compliment her looks.', 'Notice what other men miss.'),
+full('wow', 'She needs to feel like she\'s winning you over.', 'If she never has to try, she stops caring.', {rt:false, pos:'40% 15%'}),
+nodes('Make her feel like a woman, not just a pretty face.', [['Fun','Laugh at her jokes, then tease her back'],['Sexy','Let her see you notice her'],['Adorable','Point out the small things she does']], {eye:'Feeling 2 · Make her feel special'}),
+compare('Two compliments. Only one works.', 'What every guy says', ['You\'re so beautiful','You look great','You\'re perfect'], 'What makes her feel special', ['You laugh before you even get to the punchline','You light up when you talk about your sister','You\'re a terrible liar, I love it']),
+split('arms', 'Date her on purpose.', 'When she can tell you picked her, she feels chosen.', {rev:true, eye:'Feeling 2 · Make her feel special'}),
+quote('soft', 'After years of feeling I had to change to attract others, Jamie taught me how to simply be the best version of myself.', 'Jon · Client'),
+quote('black', 'If you\'re successful, you\'re short on time. Jamie was a total game changer.', 'Gerard · Client'),
+yes('Type YES if you\'re going to try this on your next date.'),
+
+/* ===== 7 TRAINING · PILLAR 3 ===== */
+divider('Feeling 3 of 3', 'Escalate without being creepy', 'From a high five to the first kiss.'),
+myth('Wait for a clear sign.', 'She\'s waiting for you to lead.'),
+full('shh', 'It\'s always better to go for it and get rejected...', '...than to never go for it at all.', {rt:true}),
+thermo,
+full('red', 'Make her feel safe going home with you.', 'Safe and wanted at the same time. That\'s the sweet spot.', {rt:true}),
+framed('makeover.jpg', 'Online, your photos do most of the work.', 'Escalation starts before you ever meet her.', {eye:'Feeling 3 · Escalate without being creepy'}),
+polaroid('hair', 'Rejection is sometimes the best thing that can happen.', 'It tells you who to stop wasting time on.', {eye:'Feeling 3 · Escalate without being creepy'}),
+quote('think', 'After my divorce, I had no idea how to get back out there. This gave me structure and confidence without feeling fake.', 'Matthew, 59 · Client'),
+yes('Type YES if you finally see where you\'ve been holding back.'),
+
+/* ===== 8 COMMITMENT ===== */
+triangle('Tension. Special. Escalation.', 'Here\'s the whole thing on one slide', PILLARS.map(p=>p[0])),
+yes('Can you see why the nice-guy script kept failing you?', 'YES', {bg:'creambg'}),
+yes('Can you picture using this on your next date?', 'YES', {bg:'creambg'}),
+full('think', 'Think about the last girl you fell for.', 'Which of the three was missing?', {}),
+
+/* ===== 9 TRANSITION ===== */
+split('calm', 'Now you know what to do.', 'The hard part is doing it with nobody in your corner.', {}),
+nodes('From here you\'ve got three paths.', [['Do nothing','Another year of the same dates'],['Figure it out alone','Trial and error, one rejection at a time'],['Let me guide you','A plan built for you, with me in your corner']], {eye:'Your choice'}),
+full('glance', 'Another year of going to bed alone.', 'That\'s what doing nothing actually costs.', {rt:false}),
+yes('Can I show you how we could work on this together?'),
+
+/* ===== 10 OFFER ===== */
+divider('Introducing', 'Relationship Renaissance 90', 'My invite-only 90-day coaching program for men.'),
+nodes('90 days. Three phases.', [['Diagnose','Find what\'s really holding you back','1'],['Build','Your profile, your messages, your approach','2'],['Execute','Real dates, with me in your corner','3']], {eye:'How it works'}),
+cards('Phase 1 · Diagnose', [['Friend-zone behaviours','The habits that make her see you as a friend'],['Messaging mistakes','Why she stops replying'],['Blind spots and beliefs','What\'s quietly sabotaging your confidence'],['A mock date with me','I\'ll tell you what a woman actually sees']], 4, {eye:'Relationship Renaissance 90'}),
+cards('Phase 2 · Build', [['Done-for-you dating profile','Photos and prompts that get matches'],['Messaging framework','From match to date'],['Cold approach blueprint','Talk to her in real life'],['Flirtation and escalation','Without being creepy'],['Your social circle','Meet women through friends'],['Date execution','Where to go and how to lead']], 3, {eye:'Relationship Renaissance 90'}),
+cards('Phase 3 · Execute', [['Real-time coaching','Help while it\'s actually happening'],['Direct access','Questions answered when they come up'],['Accountability','So you actually go out and do it']], 3, {eye:'Relationship Renaissance 90'}),
+nodes('All 3 ways to meet women.', [['Online dating','',''],['Cold approach','',''],['Social circle','','']].map((x,i)=>[x[0],['Apps that finally work for you','Talking to her in real life','Through the people you already know'][i],['01','02','03'][i]]), {eye:'Relationship Renaissance 90', bg:'creambg'}),
+text('No pickup gimmicks. No manipulation. No fake alpha persona.', 'Just a better version of the man you already are.', {bg:'redbg', size:'h2'}),
+
+/* ===== 11 PRICE (no number) ===== */
+split('serious', 'It\'s invite-only, so there\'s no price on a slide.', 'Every plan is built around you. We talk about fit first.', {eye:'Investment', rev:true}),
+
+/* ===== 12 BONUSES ===== */
+framed('golden.jpg', 'Bonus: your own personal stylist.', 'So you look the part before the first date.', {eye:'Bonus #1'}),
+split('arms', 'Bonus: a fitness trainer and nutritionist.', 'Feel good in your body, walk in with confidence.', {eye:'Bonus #2'}),
+split('laugh', 'Bonus: weekly live Q&A with me.', 'Bring any situation. We\'ll work through it together.', {eye:'Bonus #3', rev:true}),
+{ html:`<div class="c">${eye('Everything you get')}<h2 class="h2 a1">Relationship Renaissance 90</h2><div class="stack a2">
+  ${[['90 days of 1-on-1 coaching','Diagnose · Build · Execute'],['Done-for-you dating profile','Included'],['All 3 ways to meet women','Online · Cold approach · Social circle']].map(r=>`<div class="row"><span>${r[0]}</span><em>${r[1]}</em></div>`).join('')}
+  ${[['Personal stylist','Bonus'],['Fitness trainer and nutritionist','Bonus'],['Weekly live Q&A with me','Bonus']].map(r=>`<div class="row bn"><span>${r[0]}</span><em>${r[1]}</em></div>`).join('')}
+  </div></div>` },
+
+/* ===== 13 RISK REVERSAL ===== */
+full('soft', 'If it\'s not a fit, we\'ll tell you.', 'The call is free. No pressure, no obligation.', {rt:true, eye:'My promise'}),
+
+/* ===== 14 URGENCY + CTA ===== */
+text('It\'s 1-on-1, so I can only take a few men at a time.', 'When they\'re gone, the next spots open next round.', {eye:'Why now', size:'h2'}),
+{ html:`<div class="c redbg">${B.replace('class="brand"','class="brand" style="color:#fff"')}<div class="eye a1">Your next step</div><h1 class="h1 a2" style="max-width:18ch">Book your free strategy call</h1>
+  <p class="sub a3">45 to 60 minutes with me or a highly trained member of my team.</p><div class="btn a4" style="background:#fff;color:var(--red)">See if you qualify</div></div>` },
+cards('What happens on the call.', [['We look at your dating life','What\'s working and what isn\'t'],['We find your blind spots','The exact things holding you back'],['You leave with a plan','Whether we work together or not']], 3, {eye:'Strategy call'}),
+faq('Will I work with you directly, or get passed off to a team?'),
+faq('Do I have to approach women in ways that feel unnatural?'),
+faq('Is this only for men who struggle badly with women?'),
+faq('How soon will I start seeing results?'),
+faq('Is there an application process?'),
+full('laugh', 'You\'re not behind. You\'re <span class="r">undirected.</span>', 'Click below and see if you qualify.', {rt:true, size:'h2'}),
+{ html:`<div class="c">${B}<div class="eye a1">Thanks for staying</div><h2 class="h2 a2">Here\'s your free gift.</h2>
+  <div class="a3" style="margin-top:5cqh;display:flex;gap:4cqw;align-items:center"><img class="cover" style="height:56cqh" src="${I('swiping.jpg')}" alt=""><div style="text-align:left"><p class="sub" style="margin:0">The In\'s and Out\'s of Swiping Left & Right</p><div class="btn">See if you qualify</div></div></div></div>` }
+]);
+</script>
+</body>
+</html>
