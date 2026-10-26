@@ -101,6 +101,39 @@ button{font:inherit;cursor:pointer}
 .mo input.err{border-color:var(--red)}
 .er{min-height:18px;margin:0 0 8px;font-size:14px;color:var(--red)}
 
+/* value stack */
+.stack{padding:0 20px 56px}
+.stack-card{max-width:1020px;margin:0 auto;background:var(--cream);border-radius:12px;padding:56px 48px;text-align:center}
+.sl{list-style:none;margin:30px auto 0;padding:0;max-width:820px;text-align:left}
+.sl li{display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid rgba(14,13,13,.1)}
+.sl .ck{flex:none;width:22px;height:22px;margin-top:2px;fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.sl div{flex:1}
+.sl b{display:block;font:600 17px/1.35 var(--sans);color:var(--ink)}
+.sl span{display:block;margin-top:4px;font:400 16px/1.45 var(--sans);color:var(--text)}
+.sl em{flex:none;font:500 16px/1.35 var(--sans);font-style:normal;color:var(--red);white-space:nowrap}
+.tot{margin:30px 0 24px}
+.tv{margin:0;font:500 30px/1.2 var(--serif);color:var(--ink)}
+.tv s{text-decoration-color:var(--red);text-decoration-thickness:2px}
+.tf{margin:6px 0 0;font:600 italic 40px/1.15 var(--serif);color:var(--red)}
+
+/* testimonials */
+.testi{padding:16px 20px 64px}
+.tgrid{max-width:1020px;margin:40px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tq{margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 24px 22px}
+.tq blockquote{margin:0;font:500 20px/1.35 var(--serif);color:var(--ink)}
+.tq figcaption{margin-top:14px;font:600 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.tshots{max-width:1020px;margin:20px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ts{border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:437/630;background:#fff}
+.ts img{width:100%;height:100%;object-fit:cover;object-position:top}
+@media(max-width:900px){.tgrid{grid-template-columns:1fr 1fr}.tshots{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){
+  .stack-card{padding:36px 20px}
+  .sl li{flex-wrap:wrap}
+  .sl em{margin-left:36px}
+  .tf{font-size:32px}.tv{font-size:26px}
+  .tgrid{grid-template-columns:1fr}
+}
+
 /* mobile hardening */
 @media(max-width:900px){
   .hero-card{grid-template-columns:1fr;padding:28px;gap:28px;text-align:center}
