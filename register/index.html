@@ -3,269 +3,110 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Free Live Class · The 3 Overlooked Feelings</title>
-<meta name="description" content="Free live class for good men who want to date beautiful women.">
+<title>Free Live Class · The 3 Psychological Feelings</title>
+<meta name="description" content="Free live class: how to trigger the 3 psychological feelings that make women feel deep, primal attraction.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="../favicon.png" type="image/png">
 <script>try{if("scrollRestoration" in history)history.scrollRestoration="manual"}catch(e){}addEventListener("load",function(){if(!location.hash)scrollTo(0,0)});</script>
-<link rel="stylesheet" href="../assets/funnel.css?v=1">
-<style>
-  /* hero card  */
-  .hero{padding:40px 0 30px;background:radial-gradient(70% 60% at 50% 0%,#fff 0%,rgba(255,255,255,0) 70%),linear-gradient(180deg,var(--bg) 0%,var(--blush) 100%)}
-  .hero-card{display:grid;grid-template-columns:0.9fr 1.1fr;gap:44px;align-items:center;padding:28px}
-  .hero-photo{border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:#1a1414}
-  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-  .hero h1{font-size:clamp(32px,4.3vw,50px);margin:18px 0 0;text-wrap:balance}
-  .hero .sub{font-size:18px;color:var(--ink-2);margin:14px 0 0}
-  .when{display:flex;align-items:center;gap:10px;margin:20px 0 0;font:700 18px/1.3 var(--display);color:var(--red)}
-  .when svg{width:20px;height:20px;flex:none}
-  .hero .cta{margin-top:24px}
-  .hero .note{text-align:left;margin:14px 0 0}
-  .cd-band{display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap;margin:26px auto 0;max-width:880px}
-  .cd-band p{margin:0;font:800 12px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
-  .big-cd{display:flex;gap:10px}
-  .big-cd div{background:var(--card);border:1px solid var(--line);border-radius:16px;min-width:76px;padding:12px 8px;text-align:center;box-shadow:0 14px 30px -22px rgba(60,20,20,.35)}
-  .big-cd b{display:block;font:700 32px/1 var(--display);color:var(--ink)}
-  .big-cd span{display:block;font:700 10px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:7px}
-
-  /* you're going to learn */
-  .learn{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .learn article{padding:30px 26px;text-align:center}
-  .learn .ic{width:54px;height:54px;border-radius:50%;margin:0 auto 18px;background:var(--red-soft);color:var(--red);display:grid;place-items:center}
-  .learn .ic svg{width:24px;height:24px}
-  .learn small{display:block;font:800 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-  .learn h3{font-size:22px}
-  .learn p{color:var(--ink-2);margin:10px 0 0;font-size:15.5px}
-
-  /* for you / not for you */
-  .fit{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .fit .box{border-radius:var(--r);padding:34px 32px}
-  .fit .yes{background:var(--blush)}
-  .fit .no{background:var(--ink);color:#f5efe9}
-  .fit h3{font-size:28px;margin-bottom:18px}
-  .fit .no h3{color:#fff}
-  .fit ul{list-style:none;margin:0;padding:0}
-  .fit li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(14,13,13,.08);font-size:15.5px}
-  .fit .no li{border-color:rgba(245,239,233,.12)}
-  .fit li i{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;margin-top:1px}
-  .fit .yes li i{background:var(--red);color:#fff}
-  .fit .no li i{background:rgba(245,239,233,.14);color:#f5efe9}
-  .fit li svg{width:13px;height:13px}
-
-  /* value stack */
-  .stack-wrap{background:var(--blush)}
-  .stack{max-width:720px;margin:0 auto;padding:34px 30px 30px}
-  .stack .logo{display:block;text-align:center;margin-bottom:22px}
-  .stack ul{list-style:none;margin:0;padding:0}
-  .stack li{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px dashed rgba(14,13,13,.10)}
-  .stack li .ck{flex:none;width:30px;height:30px;border-radius:50%;background:var(--red-soft);color:var(--red);display:grid;place-items:center}
-  .stack li .ck svg{width:15px;height:15px}
-  .stack li div{flex:1;min-width:0}
-  .stack li b{display:block;font-size:16px;line-height:1.35}
-  .stack li small{display:block;color:var(--muted);font-size:13.5px}
-  .stack li em{flex:none;font:800 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:#fff;background:var(--red);padding:7px 10px;border-radius:8px}
-  .total{text-align:center;margin:24px 0 18px;font:700 22px/1.3 var(--display)}
-  .total s{color:var(--muted);font-weight:600}
-  .total b{color:var(--red)}
-
-  /* why free */
-  .why{text-align:center}
-  .mono{width:56px;height:56px;border-radius:50%;margin:0 auto 18px;overflow:hidden;border:3px solid #fff;box-shadow:0 8px 24px rgba(60,20,20,.18)}
-  .mono img{width:100%;height:100%;object-fit:cover}
-  .why p{font-size:17px;color:var(--ink-2);margin:14px auto 0;max-width:58ch}
-  .why p strong{color:var(--ink)}
-
-  /* host */
-  .host{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
-  .host h2{font-size:clamp(34px,4.6vw,52px)}
-  .host .role{font:800 12px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:12px 0 20px}
-  .host p{color:var(--ink-2);margin:0 0 14px}
-  .host-photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:#1a1414}
-  .host-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
-  .stats div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 12px}
-  .stats b{display:block;font:700 22px/1.1 var(--display)}
-  .stats span{display:block;font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.35}
-
-  /* client wins */
-  .wins{background:linear-gradient(180deg,var(--bg),var(--blush))}
-  .shots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-  .shots div{border-radius:18px;overflow:hidden;aspect-ratio:437/630;background:#fff;box-shadow:0 18px 40px -28px rgba(60,20,20,.45)}
-  .shots img{width:100%;height:100%;object-fit:cover;object-position:top}
-  .wall{columns:3 260px;column-gap:14px;margin-top:30px}
-  .wq{break-inside:avoid;margin:0 0 14px;padding:22px 22px 18px;background:#fff;border:1px solid var(--line);border-radius:18px}
-  .wq blockquote{margin:8px 0 0;font-size:15.5px;line-height:1.55}
-  .wq figcaption{margin-top:12px;font:800 11.5px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-
-  /* closing band */
-  .band{background:var(--red);color:#fff;text-align:center;padding:64px 0}
-  .band h2{font-size:clamp(34px,5.4vw,60px);text-transform:uppercase;letter-spacing:-.01em;color:#fff}
-  .band p{margin:12px auto 26px;color:rgba(255,255,255,.85);max-width:52ch}
-  .band .cta{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35)}
-  .band .cta span{background:#fff;color:var(--red);box-shadow:0 10px 28px rgba(0,0,0,.18)}
-  .band .cta span::after{background:var(--red-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c1121f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/14px no-repeat}
-  .foot{text-align:center;padding:30px 20px 40px;color:var(--muted);font-size:13px}
-  .foot .logo{display:block;color:var(--ink);margin-bottom:6px}
-
-  /* opt-in modal */
-  .mo{position:fixed;inset:0;z-index:50;background:rgba(14,13,13,.55);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
-  .mo.open{opacity:1;visibility:visible}
-  .mo-box{position:relative;width:100%;max-width:440px;background:#fff;border-radius:26px;padding:34px 28px 28px;text-align:center;box-shadow:0 40px 80px rgba(0,0,0,.3)}
-  .mo-x{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:var(--bg-2);cursor:pointer;font-size:20px;line-height:1}
-  .mo h3{font-size:28px}
-  .mo .ms{color:var(--ink-2);font-size:15px;margin:8px 0 20px}
-  .mo label{display:block;text-align:left;font:700 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
-  .mo input{width:100%;font:16px var(--sans);padding:15px 16px;border-radius:14px;border:1px solid var(--line);background:var(--bg);margin-bottom:14px;outline:none}
-  .mo input:focus{border-color:var(--red);box-shadow:0 0 0 3px var(--red-soft)}
-  .mo input.err{border-color:var(--red)}
-  .mo .er{color:var(--red);font-size:13px;min-height:18px;margin:0 0 6px}
-  .mo .cta{width:100%}
-  .mo .cta span{width:100%;justify-content:center}
-
-  @media(max-width:900px){
-    .hero-card,.host{grid-template-columns:1fr;gap:26px}
-    .hero-card{padding:18px}
-    .hero-photo{aspect-ratio:16/11}
-    .learn,.fit{grid-template-columns:1fr}
-    .shots{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .host-photo{order:-1;aspect-ratio:1/1}
-  }
-  @media(max-width:560px){
-    .big-cd div{min-width:64px}
-    .big-cd b{font-size:26px}
-    .stack{padding:26px 18px}
-    .stack li em{display:none}
-    .stats{grid-template-columns:1fr}
-    .cta span{padding:16px 18px 16px 24px;font-size:14px}
-  }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Josefin+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/class.css?v=5">
 </head>
 <body>
 
-<header class="jd-head">
-  <div class="wrap row">
-    <span class="logo">jamie date<i>.</i></span>
-    <div class="mini-cd" aria-label="Time until the class starts">
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="#">jamie date<i>.</i></a>
+    <div class="cd" aria-label="Time until the class starts">
       <div><b data-cd="d">00</b><span>Days</span></div><i>:</i>
       <div><b data-cd="h">00</b><span>Hours</span></div><i>:</i>
-      <div><b data-cd="m">00</b><span>Mins</span></div><i>:</i>
-      <div><b data-cd="s">00</b><span>Secs</span></div>
+      <div><b data-cd="m">00</b><span>Minutes</span></div><i>:</i>
+      <div><b data-cd="s">00</b><span>Seconds</span></div>
     </div>
-    <button type="button" class="cta cta--sm" data-open-modal><span>Save my seat</span></button>
+    <button type="button" class="pill pill--wine" data-open-modal>RSVP for this class</button>
   </div>
 </header>
 
 <main>
   <section class="hero">
-    <div class="wrap">
-      <div class="card hero-card">
-        <div class="hero-photo"><img src="../assets/img/deck/l-cq4OSJLWj4s.jpg" alt="Jamie Date"></div>
-        <div>
-          <span class="pill-eb"><img src="../assets/img/profile/pfp.jpg" alt="">Free live class<span class="live" aria-hidden="true"></span></span>
-          <h1>How to Trigger the 3 <span class="hl">Overlooked Feelings</span> That Make Beautiful Women Fall For Good Men</h1>
-          <p class="sub">(Even if you&rsquo;re too nice or haven&rsquo;t dated in years.)</p>
-          <p class="when"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span id="whenTxt">Thursday, October 29 // 8 PM ET</span></p>
-          <button type="button" class="cta " data-open-modal><span>Save my free seat</span></button>
-          <p class="note">Can&rsquo;t make it live? Register anyway and I&rsquo;ll send you the replay (available for 48 hours only).</p>
-        </div>
-      </div>
-      <div class="cd-band">
-        <p>The class starts in</p>
-        <div class="big-cd">
-          <div><b data-cd="d">00</b><span>Days</span></div>
-          <div><b data-cd="h">00</b><span>Hours</span></div>
-          <div><b data-cd="m">00</b><span>Mins</span></div>
-          <div><b data-cd="s">00</b><span>Secs</span></div>
-        </div>
+    <div class="hero-card">
+      <div class="hero-photo"><img src="../assets/img/deck/l-cq4OSJLWj4s.jpg" alt="Jamie Date"></div>
+      <div class="hero-txt">
+        <p class="kicker">FREE LIVE CLASS!</p>
+        <h1>How to Trigger the 3 <em>Psychological Feelings</em> That Make Women Feel Deep, Primal Attraction</h1>
+        <p class="sub">(Even if you&rsquo;re &ldquo;too nice&rdquo; or haven&rsquo;t dated in years.)</p>
+        <p class="when" id="whenTxt">Thursday, October 29 // 8 PM ET (5 PM PT)</p>
+        <button type="button" class="pill pill--pink" data-open-modal>Save my free spot</button>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="sec-h"><h2>You&rsquo;re going to learn <span class="it">all</span> this&hellip;</h2></div>
-      <div class="learn"><article class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.4C.9 8.2 3 4.5 6.6 4.5c2.1 0 3.6 1.2 5.4 3.1 1.8-1.9 3.3-3.1 5.4-3.1 3.6 0 5.7 3.7 4.2 7.1C19.5 16.4 12 21 12 21z"/></svg></div><small>Feeling 1</small><h3>Build tension</h3><p>Be the chooser, not the chaser: the banter and push-pull that stop her friend-zoning you.</p></article><article class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.4C.9 8.2 3 4.5 6.6 4.5c2.1 0 3.6 1.2 5.4 3.1 1.8-1.9 3.3-3.1 5.4-3.1 3.6 0 5.7 3.7 4.2 7.1C19.5 16.4 12 21 12 21z"/></svg></div><small>Feeling 2</small><h3>Make her feel special</h3><p>The compliments other men miss, so she feels chosen and wants to win you over.</p></article><article class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.4C.9 8.2 3 4.5 6.6 4.5c2.1 0 3.6 1.2 5.4 3.1 1.8-1.9 3.3-3.1 5.4-3.1 3.6 0 5.7 3.7 4.2 7.1C19.5 16.4 12 21 12 21z"/></svg></div><small>Feeling 3</small><h3>Escalate without being creepy</h3><p>The thermostat method: from a high five to the first kiss, one step at a time.</p></article></div>
+  <section class="learn">
+    <h2 class="sh">You&rsquo;re going to learn <em>all</em> this...</h2>
+    <div class="cols">
+      <div class="col"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.2s-8-4.9-10-10C.6 7.6 2.9 3.6 6.8 3.6c2.2 0 3.9 1.2 5.2 3.1 1.3-1.9 3-3.1 5.2-3.1 3.9 0 6.2 4 4.8 7.6-2 5.1-10 10-10 10z"/></svg><p>Why becoming &ldquo;the chooser, not the chaser&rdquo; builds the tension that makes her pursue you.</p></div>
+      <div class="col"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.2s-8-4.9-10-10C.6 7.6 2.9 3.6 6.8 3.6c2.2 0 3.9 1.2 5.2 3.1 1.3-1.9 3-3.1 5.2-3.1 3.9 0 6.2 4 4.8 7.6-2 5.1-10 10-10 10z"/></svg><p>How to make her feel chosen and valued for who she is, not just another pretty face.</p></div>
+      <div class="col"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.2s-8-4.9-10-10C.6 7.6 2.9 3.6 6.8 3.6c2.2 0 3.9 1.2 5.2 3.1 1.3-1.9 3-3.1 5.2-3.1 3.9 0 6.2 4 4.8 7.6-2 5.1-10 10-10 10z"/></svg><p>How to escalate without being creepy, from a high five to the first kiss.</p></div>
+      <div class="col"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.2s-8-4.9-10-10C.6 7.6 2.9 3.6 6.8 3.6c2.2 0 3.9 1.2 5.2 3.1 1.3-1.9 3-3.1 5.2-3.1 3.9 0 6.2 4 4.8 7.6-2 5.1-10 10-10 10z"/></svg><p>Live Q&amp;A where you get personal coaching. Ask me anything about your specific situation.</p></div>
     </div>
   </section>
 
-  <section style="padding-top:0">
-    <div class="wrap fit">
-      <div class="box yes"><h3>This is for you if&hellip;</h3><ul><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span>You&rsquo;re a good man who keeps hearing &ldquo;you&rsquo;re such a great guy&rdquo;, and then nothing.</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span>Your dates are nice, but they never turn into a second or third.</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span>You&rsquo;re back out there after a divorce or a long break.</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span>You want a real relationship with a woman you&rsquo;re excited about.</span></li></ul></div>
-      <div class="box no"><h3>This is not for you if&hellip;</h3><ul><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></i><span>You want pickup lines to trick women.</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></i><span>You won&rsquo;t take dating advice from a woman.</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></i><span>You&rsquo;re not willing to show up live and take notes.</span></li><li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></i><span>You want a girlfriend without changing a single thing.</span></li></ul></div>
+  <section class="fit">
+    <div class="box box--pink">
+      <h2 class="sh">This is for you if...</h2>
+      <ul class="tl">
+        <li><span class="tg tg--on"></span>You&rsquo;re successful but struggle with dating confidence.</li>
+        <li><span class="tg tg--on"></span>Women always say you&rsquo;re &ldquo;such a great guy&rdquo; but never date you.</li>
+        <li><span class="tg tg--on"></span>You&rsquo;ve been told you&rsquo;re &ldquo;too nice&rdquo; or &ldquo;too safe&rdquo;.</li>
+        <li><span class="tg tg--on"></span>You want real attraction, not pickup artist games.</li>
+      </ul>
+    </div>
+    <div class="box box--ink">
+      <h2 class="sh">This isn&rsquo;t for you if...</h2>
+      <ul class="tl">
+        <li><span class="tg"></span>You&rsquo;re looking for manipulation tactics.</li>
+        <li><span class="tg"></span>You want instant results without any effort.</li>
+        <li><span class="tg"></span>You&rsquo;re not willing to challenge yourself.</li>
+      </ul>
     </div>
   </section>
 
-  <section class="stack-wrap">
-    <div class="wrap">
-      <div class="sec-h"><span class="eyebrow">When you save your seat</span><h2>Everything you get, <span class="hl">100% free</span></h2></div>
-      <div class="card stack">
-        <span class="logo">jamie date<i>.</i></span>
-        <ul><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>The free live class: The 3 Overlooked Feelings</b><small>60 minutes, live with me</small></div><em>Free</em></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Becoming Boyfriend Material, my self-starter guide</b><small>Sent the moment you save your seat</small></div><em>Free gift</em></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Live Q&amp;A: ask me anything</b><small>Your question, answered on the spot</small></div><em>Live only</em></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Best Selling Hinge Prompts</b><small>For every man who stays to the end</small></div><em>Live bonus</em></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>The full replay</b><small>Watch it again for 48 hours</small></div><em>Included</em></li></ul>
-        <p class="total"><s>Everything above</s> &rarr; <b>100% FREE</b></p>
-        <div class="center"><button type="button" class="cta " data-open-modal><span>Save my free seat</span></button></div>
-        <p class="note">The class runs live once. Seats are limited, and the replay comes down after 48 hours.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="why">
-    <div class="wrap narrow">
-      <div class="mono"><img src="../assets/img/profile/pfp.jpg" alt=""></div>
-      <h2 style="font-size:clamp(30px,4.4vw,46px)">So how exactly <span class="it">is this free</span>?</h2>
-      <p>For <strong>5 years</strong> I was a professional catfish. I wrote the messages men send on dating apps and watched how women replied.</p>
-      <p>So you might be asking&hellip; <strong><em>&ldquo;Why would you teach this for free, Jamie?&rdquo;</em></strong></p>
-      <p>Because I&rsquo;d rather show you how I work before you ever pay me. Use it and get the dates. If you want my help after that, you can see if you qualify to work with me. If not, you keep everything.</p>
-      <div style="margin-top:28px"><button type="button" class="cta " data-open-modal><span>Save my free seat</span></button></div>
-    </div>
-  </section>
-
-  <section style="padding-top:0">
-    <div class="wrap host">
-      <div>
+  <section class="host">
+    <div class="host-in">
+      <div class="host-txt">
         <h2>Hi, I&rsquo;m Jamie Date</h2>
-        <p class="role">Your host &middot; dating coach for men &middot; author of How to Make Online Dating Suck Less</p>
-        <p>I&rsquo;m not a man guessing about women. I&rsquo;m a woman who spent 5 years as a professional catfish, picking up women online as a man.</p>
-        <p>For nearly a decade since, I&rsquo;ve shown good men exactly what we notice: why the nice guy gets friend-zoned, what makes a woman feel chosen, and how to move from a first date to a relationship without games.</p>
-        <p>If you&rsquo;re tired of being the great guy she doesn&rsquo;t call back, you&rsquo;re in the right place.</p>
-        <div class="stats">
-          <div><b>5 years</b><span>As a professional catfish</span></div>
-          <div><b>Nearly 10</b><span>Years coaching men</span></div>
-          <div><b>Hundreds</b><span>Of men coached</span></div>
-        </div>
+        <p class="role">YOUR HOST &amp; DATING COACH FOR GOOD MEN</p>
+        <p>Here&rsquo;s what makes me different: I&rsquo;m not a man guessing about women. I AM a woman. I know exactly what goes through our heads, what creates attraction, and what kills it instantly.</p>
+        <p>For 5 years I was a professional catfish, picking up women online as a man. I saw which messages got answered and which ones got ignored.</p>
+        <p>For nearly a decade since, I&rsquo;ve been showing good men what we notice: why the nice guy gets friend-zoned, what makes a woman feel chosen, and how to go from a first date to a relationship without games.</p>
+        <p>If you&rsquo;re tired of being the great guy she doesn&rsquo;t call back, you&rsquo;re in the right place. Let&rsquo;s get to work!</p>
       </div>
-      <div class="host-photo"><img src="../assets/img/deck/l-ZmVdXCHScVA.jpg" alt="Jamie Date"></div>
-    </div>
-  </section>
-
-  <section class="wins">
-    <div class="wrap">
-      <div class="sec-h"><span class="eyebrow">Real messages from my clients</span><h2>Recent client wins</h2></div>
-      <div class="shots"><div><img src="../assets/img/proof/t2.jpg" alt="Hinge matches after the bootcamp" loading="lazy"></div><div><img src="../assets/img/proof/t3.jpg" alt="After one Zoom session" loading="lazy"></div><div><img src="../assets/img/proof/t9.jpg" alt="First date via Hinge" loading="lazy"></div><div><img src="../assets/img/proof/t5.jpg" alt="After a 1-on-1 call" loading="lazy"></div><div><img src="../assets/img/proof/t4.jpg" alt="After the online dating lecture" loading="lazy"></div><div><img src="../assets/img/proof/t1.jpg" alt="After the bio rewrite" loading="lazy"></div><div><img src="../assets/img/proof/t8.jpg" alt="Holy shit it works" loading="lazy"></div><div><img src="../assets/img/proof/t6.jpg" alt="Doing it all wrong" loading="lazy"></div></div>
-      <div class="wall"><figure class="wq"><blockquote>&ldquo;Before this, I constantly got friend-zoned. Within weeks I started getting second and third dates consistently.&rdquo;</blockquote><figcaption>JP, 36</figcaption></figure><figure class="wq"><blockquote>&ldquo;After my divorce, I had no idea how to get back out there. This gave me structure and confidence without feeling fake.&rdquo;</blockquote><figcaption>Matthew, 59</figcaption></figure><figure class="wq"><blockquote>&ldquo;This was 3 days before my call with Jamie this past Thursday... I had to turn one down for a date this weekend because I already have dates tonight, tomorrow, Friday and Saturday.&rdquo;</blockquote><figcaption>Bradley</figcaption></figure><figure class="wq"><blockquote>&ldquo;Had a great month in April. I used your methods and was dating multiple women from Hinge. So thank you!&rdquo;</blockquote><figcaption>Phil</figcaption></figure><figure class="wq"><blockquote>&ldquo;Jamie taught me how to simply be the best version of myself.&rdquo;</blockquote><figcaption>Jon</figcaption></figure><figure class="wq"><blockquote>&ldquo;I stopped overthinking every move and started showing up as a confident, grounded man.&rdquo;</blockquote><figcaption>Noah</figcaption></figure><figure class="wq"><blockquote>&ldquo;I&rsquo;m finally dating someone I&rsquo;m actually excited about!&rdquo;</blockquote><figcaption>Martin</figcaption></figure><figure class="wq"><blockquote>&ldquo;Dating apps went from frustrating to predictable.&rdquo;</blockquote><figcaption>Anthony, 42</figcaption></figure><figure class="wq"><blockquote>&ldquo;We talked about you at work today. I&rsquo;m going to use parts of our call to show how to coach in a 1:1 situation. Actual coaching. It was perfect.&rdquo;</blockquote><figcaption>Client DM</figcaption></figure><figure class="wq"><blockquote>&ldquo;That&rsquo;s fine, they can keep striking out, I&rsquo;ll keep using everything you give out.&rdquo;</blockquote><figcaption>Client DM</figcaption></figure></div>
+      <div class="host-photo"><img src="../assets/img/deck/l-ZmVdXCHScVA.jpg" alt="Jamie Date" loading="lazy"></div>
     </div>
   </section>
 
   <section class="band">
-    <div class="wrap">
-      <h2>Limited seats available</h2>
-      <p>Thursday at 8 PM ET, live with me. Save your seat and Becoming Boyfriend Material is yours today.</p>
-      <button type="button" class="cta " data-open-modal><span>Join the free live class</span></button>
-    </div>
+    <h2>LIMITED SPOTS AVAILABLE</h2>
+    <button type="button" class="pill pill--ink" data-open-modal>Join this free live class</button>
   </section>
 </main>
 
-<footer class="foot"><span class="logo">jamie date<i>.</i></span>Dating coach for good men</footer>
+<footer class="foot">
+  <p class="copy">Copyright &copy; 2026 Jamie Date | All Rights Reserved | Privacy Policy | Terms Of Service</p>
+  <p class="disc">This website is operated by Jamie Date. The material provided is for educational and informational purposes only. No guarantees are made regarding your dating results. Your results may vary and depend on factors beyond our control. Past results don&rsquo;t guarantee future outcomes. This site isn&rsquo;t a part of the Facebook&trade; website or Meta Platforms, Inc., and isn&rsquo;t endorsed by Facebook in any way.</p>
+</footer>
 
 <div class="mo" id="mo" role="dialog" aria-modal="true" aria-labelledby="moT">
   <div class="mo-box">
     <button type="button" class="mo-x" id="moX" aria-label="Close">&times;</button>
-    <h3 id="moT">Save your free seat</h3>
-    <p class="ms">Thursday at 8 PM ET. Your free guide comes with it.</p>
+    <h3 id="moT">Register Your Spot Now</h3>
+    <p class="ms">Just enter your name &amp; email to secure your spot on this live class. Can&rsquo;t make it live? Register anyway and we&rsquo;ll send you the replay (available for 48 hours only).</p>
     <form id="moF" novalidate>
-      <label for="moN">First name</label><input id="moN" type="text" autocomplete="given-name" placeholder="Your first name">
-      <label for="moE">Email</label><input id="moE" type="email" autocomplete="email" placeholder="you@email.com">
+      <input id="moN" type="text" autocomplete="given-name" placeholder="First name" aria-label="First name">
+      <input id="moE" type="email" autocomplete="email" placeholder="Email address" aria-label="Email address">
       <p class="er" id="moErr" role="alert"></p>
-      <button type="submit" class="cta"><span>Save my free seat</span></button>
+      <button type="submit" class="pill pill--wine pill--full">Save my free spot</button>
     </form>
   </div>
 </div>
@@ -275,14 +116,13 @@
   // next Thursday 8 PM ET, rolled forward a week at a time so the countdown never sits at zero
   var t=new Date("2026-10-29T20:00:00-04:00");
   while(t.getTime()<Date.now()) t=new Date(t.getTime()+7*86400000);
-  try{document.getElementById("whenTxt").textContent=t.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",timeZone:"America/New_York"})+" // 8 PM ET";}catch(e){}
+  try{var d=t.toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",timeZone:"America/New_York"});document.getElementById("whenTxt").textContent=d+" // 8 PM ET (5 PM PT)";}catch(e){}
   var els={d:[],h:[],m:[],s:[]};
   document.querySelectorAll("[data-cd]").forEach(function(e){els[e.getAttribute("data-cd")].push(e)});
-  function p(n){return n<10?"0"+n:""+n}
   function tick(){
     var x=Math.max(0,Math.floor((t.getTime()-Date.now())/1000));
     var v={d:Math.floor(x/86400),h:Math.floor(x%86400/3600),m:Math.floor(x%3600/60),s:x%60};
-    for(var k in v) els[k].forEach(function(e){e.textContent=p(v[k])});
+    for(var k in v) els[k].forEach(function(e){e.textContent=v[k]});
   }
   tick();setInterval(tick,1000);
 })();
